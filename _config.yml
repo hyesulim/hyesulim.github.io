@@ -3,7 +3,7 @@ remote-theme: wowthemesnet/mundana-theme-jekyll
 name: "Ella's Story"
 description: 'Stories told by Stella'
 logo: 'assets/images/logo.png'
-favicon: 'assets/images/favicon.ico'
+favicon: 'assets/images/logo.svg'
 url: 'https://hyesulim.github.io'
 baseurl: ''
 disqus: 'demowebsite'
