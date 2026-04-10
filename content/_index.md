@@ -8,7 +8,8 @@ sections:
     content:
       title: Hyesu Lim, PhD
       text: >-
-        Machine learning scientist
+        Postdoctoral researcher at Helmholtz Munich working on machine
+        learning interpretability.
       primary_action:
         text: View Projects
         url: /projects/
@@ -33,14 +34,14 @@ sections:
       title: About
       subtitle: A short introduction
       text: |
-        I am a researcher / engineer / designer focused on building useful,
-        understandable, and elegant digital systems.
+        I am a machine learning researcher working on interpretability, with the
+        goal of building testable, explainable, and controllable AI systems.
 
-        My work spans product development, technical research, and communication.
-        I care especially about clarity: clear ideas, clear interfaces, and clear
-        writing.
+        My work focuses on narrowing the gap between state-of-the-art AI and
+        real-world use cases, making these systems easier for people to
+        understand, trust, and interact with.
 
-        This site collects selected projects, notes, and essays.
+        This site collects selected projects, notes, and writing.
     design:
       columns: '1'
       spacing:
@@ -85,9 +86,9 @@ sections:
       text: |
         The easiest way to reach me is by email.
 
-        - Email: hello@example.com
-        - GitHub: [github.com/yourhandle](https://github.com/yourhandle)
-        - LinkedIn: [linkedin.com/in/yourhandle](https://linkedin.com/in/yourhandle)
+        - Email: hyesulim.ac@gmail.com
+        - GitHub: [github.com/hyesulim](https://github.com/hyesulim)
+        - LinkedIn: [linkedin.com/in/hyesulim](https://linkedin.com/in/hyesulim)
     design:
       columns: '1'
       spacing:

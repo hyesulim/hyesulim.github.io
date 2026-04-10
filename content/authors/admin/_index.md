@@ -1,47 +1,54 @@
 ---
-name: Your Name
-role: Researcher, Engineer, and Writer
+name: Hyesu Lim
+role: Postdoctoral Researcher at Helmholtz Munich
 avatar_filename: avatar.jpg
 bio: >-
-  I build research-driven digital experiences and write about technology,
-  design, and systems thinking.
+  Machine learning researcher focused on interpretability — building testable,
+  explainable, and controllable AI systems that are easier for people to
+  understand and interact with.
 
 organizations:
-  - name: Your Organization
-    url: https://example.com
+  - name: Helmholtz Munich
+    url: https://www.helmholtz-munich.de/
 
 social:
   - icon: envelope
     icon_pack: fas
-    link: 'mailto:hello@example.com'
+    link: 'mailto:hyesulim.ac@gmail.com'
   - icon: github
     icon_pack: fab
-    link: 'https://github.com/yourhandle'
+    link: 'https://github.com/hyesulim'
   - icon: linkedin
     icon_pack: fab
-    link: 'https://linkedin.com/in/yourhandle'
+    link: 'https://linkedin.com/in/hyesulim'
 
 interests:
-  - Human-centered AI
-  - Data visualization
-  - Product engineering
-  - Writing and communication
+  - Interpretability
+  - Visualization
+  - Human-Computer Interaction
 
 education:
-  - area: Your Degree
-    institution: Your University
-    date_start: 2020-09-01
-    date_end: 2024-06-01
+  - area: PhD in Artifical Intelligence
+    institution: KAIST
+    date_start: 2021-03
+    date_end: 2026-02
+  - area: BS in Computer Science and Engineering (Highest Honor)
+    institution: Korea University
+    date_start: 2017-03
+    date_end: 2021-02
 
 work:
-  - position: Your Role
-    company_name: Your Company or Lab
-    company_url: https://example.com
-    date_start: 2024-01-01
+  - position: Postdoctoral Researcher
+    company_name: Dynamical Inference Lab at Helmholtz Munich
+    company_url: https://dynamical-inference.ai/
+    date_start: 2026-03
     date_end: ''
     summary: |
-      Short summary of what you do and what kind of problems you work on.
+      Research on machine learning interpretability — building testable,
+      explainable, and controllable AI systems.
 ---
 
-Write a slightly more personal 2–4 paragraph bio here. This body content is a good
-place for your homepage introduction, your current focus, and what you’re open to.
+I am a machine learning researcher working on interpretability, with the goal of
+building testable, explainable, and controllable AI systems. My work focuses on
+narrowing the gap between state-of-the-art AI and real-world use cases, making
+these systems easier for people to understand, trust, and interact with.
