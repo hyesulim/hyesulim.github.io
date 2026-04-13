@@ -33,9 +33,9 @@ sections:
       title: About
       subtitle: A short introduction
       text: |
-        I study how deep learning models — vision, language, and multimodal —
-        represent concepts, and develop interpretability tools, especially
-        sparse autoencoders, that expose what these models learn.
+        Hi! I'm a postdoctoral researcher at the [**Dynamical Inference Lab**](https://dynamical-inference.ai/),
+        Helmholtz Munich, hosted by Prof. Steffen Schneider. I received my
+        Ph.D. from KAIST AI, advised by Prof. Jaegul Choo.
 
         My goal is to build AI systems that are **testable, explainable, and
         controllable**, so that people can understand, trust, and interact
@@ -43,7 +43,8 @@ sections:
         domains, from medical imaging to language, bridging interpretability
         research with real-world use.
 
-        This site collects selected publications and notes.
+        Previously, I worked with collaborators at NAVER AI Lab, Qualcomm AI
+        Research, and CMU — see my [CV](/uploads/cv.pdf) for details.
     design:
       columns: '1'
       spacing:
