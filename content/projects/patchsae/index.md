@@ -20,7 +20,11 @@ links:
   - type: pdf
     url: https://arxiv.org/abs/2412.05276
   - type: code
+    name: patchsae
     url: https://github.com/dynamical-inference/patchsae
+  - type: code
+    name: fastsae (generalized)
+    url: https://github.com/dynamical-inference/fastsae
   - type: project
     url: https://dynamical-inference.ai/patchsae
   - type: video
