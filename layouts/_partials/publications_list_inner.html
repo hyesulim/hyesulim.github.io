@@ -1,0 +1,189 @@
+{{/* Shared publications list rendering.
+     Context: dict with "pages" (slice of publication pages) and optional "title". */}}
+{{ $pages := .pages }}
+{{ $title := .title | default "Publications" }}
+{{ $subtitle := .subtitle | default "" }}
+
+{{/* Collect unique lowercase categories for filter pills */}}
+{{ $cats := slice }}
+{{ range $pages }}
+  {{ range .Params.categories }}
+    {{ $cats = $cats | append (lower .) }}
+  {{ end }}
+{{ end }}
+{{ $cats = $cats | uniq }}
+
+{{/* Year range from publications */}}
+{{ $years := slice }}
+{{ range $pages }}
+  {{ $years = $years | append (int (.Date.Format "2006")) }}
+{{ end }}
+{{ $minYear := 2099 }}
+{{ $maxYear := 1970 }}
+{{ range $years }}
+  {{ if lt . $minYear }}{{ $minYear = . }}{{ end }}
+  {{ if gt . $maxYear }}{{ $maxYear = . }}{{ end }}
+{{ end }}
+
+<div class="pub-page">
+  <header class="pub-header">
+    <div class="pub-title-group">
+      <h2 class="pub-title">{{ $title }}</h2>
+      {{ with $subtitle }}<p class="pub-subtitle">{{ . | safeHTML }}</p>{{ end }}
+    </div>
+    <nav class="pub-filters" aria-label="Topic filters">
+      <button type="button" class="pub-pill pub-pill-active" data-filter="all">all</button>
+      {{ range $cats }}
+      <button type="button" class="pub-pill pub-pill-{{ . | urlize }}" data-filter="{{ . }}">{{ . }}</button>
+      {{ end }}
+    </nav>
+  </header>
+
+  <div class="pub-slider-row" data-min="{{ $minYear }}" data-max="{{ $maxYear }}">
+    <span class="pub-slider-label" data-slider-min>{{ $minYear }}</span>
+    <div class="pub-slider-track">
+      <div class="pub-slider-fill"></div>
+      <input type="range" min="{{ $minYear }}" max="{{ $maxYear }}" value="{{ $minYear }}" data-slider-input="min" aria-label="From year" />
+      <input type="range" min="{{ $minYear }}" max="{{ $maxYear }}" value="{{ $maxYear }}" data-slider-input="max" aria-label="To year" />
+    </div>
+    <span class="pub-slider-label pub-slider-label--end" data-slider-max>{{ $maxYear }}</span>
+  </div>
+
+  <ul class="pub-list">
+    {{ range $pages }}
+      {{ $year := .Date.Format "2006" }}
+      {{ $cat_slugs := slice }}
+      {{ range .Params.categories }}
+        {{ $cat_slugs = $cat_slugs | append (lower .) }}
+      {{ end }}
+      {{ $featured := .Resources.GetMatch "featured.*" }}
+      <li class="pub-item" data-categories="{{ delimit $cat_slugs " " }}" data-year="{{ $year }}">
+        <div class="pub-thumb">
+          {{ with $featured }}
+            <img src="{{ .RelPermalink }}" alt="" loading="lazy" />
+          {{ end }}
+        </div>
+        <div class="pub-body">
+          {{ with .Params.publication }}<div class="pub-venue">{{ . }}</div>{{ end }}
+          {{ $projectURL := "" }}{{ $pdfURL := "" }}
+          {{ range .Params.links }}
+            {{ $t := .type | default "" }}
+            {{ if and (eq $t "project") (eq $projectURL "") }}{{ $projectURL = .url }}{{ end }}
+            {{ if and (eq $t "pdf") (eq $pdfURL "") }}{{ $pdfURL = .url }}{{ end }}
+          {{ end }}
+          {{ $titleURL := cond (ne $projectURL "") $projectURL $pdfURL }}
+          {{ if eq $titleURL "" }}{{ $titleURL = .RelPermalink }}{{ end }}
+          <h3 class="pub-item-title"><a href="{{ $titleURL }}" target="_blank" rel="noopener">{{ .Title }}</a></h3>
+          {{ with .Params.authors }}
+          <p class="pub-authors">
+            {{- range $i, $a := . -}}
+              {{- if $i -}}, {{ end -}}
+              {{- if eq $a "Hyesu Lim" -}}<strong>{{ $a }}</strong>{{- else -}}{{ $a }}{{- end -}}
+            {{- end -}}
+          </p>
+          {{ end }}
+          {{ with .Params.summary }}<p class="pub-summary">{{ . }}</p>{{ end }}
+          {{ with .Params.links }}
+          {{ $iconMap := dict
+            "pdf" (dict "pack" "fas" "icon" "fa-file-pdf")
+            "code" (dict "pack" "fab" "icon" "fa-github")
+            "project" (dict "pack" "fas" "icon" "fa-globe")
+            "poster" (dict "pack" "fas" "icon" "fa-image")
+            "slides" (dict "pack" "fas" "icon" "fa-chalkboard")
+            "video" (dict "pack" "fas" "icon" "fa-video")
+          }}
+          <div class="pub-links">
+            {{ range . }}
+            {{ $t := .type | default "" }}
+            <a class="pub-link-pill" href="{{ .url }}" target="_blank" rel="noopener">
+              {{- with index $iconMap $t }}<i class="{{ .pack }} {{ .icon }}" aria-hidden="true"></i>{{ end -}}
+              <span>{{ .name | default $t }}</span>
+            </a>
+            {{ end }}
+          </div>
+          {{ end }}
+        </div>
+        <div class="pub-tags">
+          {{ range .Params.categories }}
+          <span class="pub-tag pub-tag-{{ . | urlize }}">
+            <span class="pub-tag-dot"></span>{{ lower . }}
+          </span>
+          {{ end }}
+        </div>
+      </li>
+    {{ end }}
+  </ul>
+</div>
+
+<script>
+(function () {
+  var pages = document.querySelectorAll('.pub-page');
+  pages.forEach(function (page) {
+    if (page.dataset.pubInit) return;
+    page.dataset.pubInit = '1';
+
+    var pills = page.querySelectorAll('.pub-pill');
+    var items = page.querySelectorAll('.pub-item');
+    var sliderRow = page.querySelector('.pub-slider-row');
+    if (!sliderRow) return;
+    var minInput = sliderRow.querySelector('[data-slider-input="min"]');
+    var maxInput = sliderRow.querySelector('[data-slider-input="max"]');
+    var minLabel = sliderRow.querySelector('[data-slider-min]');
+    var maxLabel = sliderRow.querySelector('[data-slider-max]');
+    var fill = sliderRow.querySelector('.pub-slider-fill');
+    var sliderMin = parseInt(sliderRow.dataset.min, 10);
+    var sliderMax = parseInt(sliderRow.dataset.max, 10);
+
+    var currentFilter = 'all';
+
+    function updateFill() {
+      var lo = parseInt(minInput.value, 10);
+      var hi = parseInt(maxInput.value, 10);
+      if (lo > hi) { lo = hi; minInput.value = lo; }
+      var range = sliderMax - sliderMin || 1;
+      var leftPct = ((lo - sliderMin) / range) * 100;
+      var rightPct = ((hi - sliderMin) / range) * 100;
+      fill.style.left = leftPct + '%';
+      fill.style.right = (100 - rightPct) + '%';
+      minLabel.textContent = lo;
+      maxLabel.textContent = hi;
+    }
+
+    function applyFilters() {
+      var lo = parseInt(minInput.value, 10);
+      var hi = parseInt(maxInput.value, 10);
+      items.forEach(function (item) {
+        var cats = (item.dataset.categories || '').split(/\s+/);
+        var year = parseInt(item.dataset.year, 10);
+        var catMatch = currentFilter === 'all' || cats.indexOf(currentFilter) !== -1;
+        var yearMatch = year >= lo && year <= hi;
+        item.hidden = !(catMatch && yearMatch);
+      });
+    }
+
+    pills.forEach(function (pill) {
+      pill.addEventListener('click', function () {
+        pills.forEach(function (p) { p.classList.remove('pub-pill-active'); });
+        pill.classList.add('pub-pill-active');
+        currentFilter = pill.dataset.filter;
+        applyFilters();
+      });
+    });
+
+    function onSliderInput(e) {
+      if (parseInt(minInput.value, 10) > parseInt(maxInput.value, 10)) {
+        if (e.target === minInput) { minInput.value = maxInput.value; }
+        else { maxInput.value = minInput.value; }
+      }
+      updateFill();
+      applyFilters();
+    }
+
+    minInput.addEventListener('input', onSliderInput);
+    maxInput.addEventListener('input', onSliderInput);
+
+    updateFill();
+    applyFilters();
+  });
+})();
+</script>

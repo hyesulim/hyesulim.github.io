@@ -3,8 +3,8 @@ name: Hyesu Lim
 role: Postdoctoral Researcher at Helmholtz Munich
 avatar_filename: avatar.jpg
 bio: >-
-  Machine learning researcher focused on interpretability — building testable,
-  explainable, and controllable AI systems that are easier for people to
+  Interpretability researcher building tools — especially sparse autoencoders —
+  for testable, explainable, and controllable AI systems that people can
   understand and interact with.
 
 organizations:
@@ -48,7 +48,10 @@ work:
       explainable, and controllable AI systems.
 ---
 
-I am a machine learning researcher working on interpretability, with the goal of
-building testable, explainable, and controllable AI systems. My work focuses on
-narrowing the gap between state-of-the-art AI and real-world use cases, making
-these systems easier for people to understand, trust, and interact with.
+I study how deep learning models — vision, language, and multimodal — represent
+concepts, and develop interpretability tools, especially sparse autoencoders,
+that expose what these models learn. My goal is to build AI systems that are
+testable, explainable, and controllable, so that people can understand, trust,
+and interact with them more naturally. I apply these methods across scientific
+domains, from medical imaging to language, bridging interpretability research
+with real-world use.

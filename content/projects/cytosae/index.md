@@ -1,6 +1,6 @@
 ---
 title: "CytoSAE: Interpretable Cell Embeddings for Hematology"
-summary: Sparse autoencoders for interpretable single-cell embeddings in hematology. MICCAI 2025.
+summary: Sparse autoencoders for interpretable single-cell embeddings in hematology.
 authors:
   - Muhammed Furkan Dasdelen
   - Hyesu Lim
@@ -12,21 +12,18 @@ date: 2025-10-01
 featured: false
 draft: false
 
+image:
+  placement: 3
+
 publication: "MICCAI 2025"
 publication_types: ["conference"]
 
 links:
-  - icon: file-pdf
-    icon_pack: fas
-    name: PDF
+  - type: pdf
     url: https://arxiv.org/abs/2507.12464
-  - icon: github
-    icon_pack: fab
-    name: Code
+  - type: code
     url: https://github.com/dynamical-inference/cytosae
-  - icon: file-alt
-    icon_pack: fas
-    name: Poster
+  - type: poster
     url: https://drive.google.com/file/d/1XQowSz0fWRyzMOtKOTQatnPYdqoQzphA/view?usp=sharing
 
 categories:

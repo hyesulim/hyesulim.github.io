@@ -8,14 +8,13 @@ sections:
     content:
       title: Hyesu Lim, PhD
       text: >-
-        Postdoctoral researcher at Helmholtz Munich working on machine
-        learning interpretability.
+        **Postdoctoral researcher at Helmholtz Munich**<br>
+        I build interpretability tools for vision, language, and multimodal
+        models — aiming for AI systems that are testable, explainable, and
+        controllable.
       primary_action:
-        text: View Projects
-        url: /projects/
-      secondary_action:
-        text: Read Writing
-        url: /blog/
+        text: View Publications
+        url: /#publications
       announcement:
         text: Download CV
         link:
@@ -34,48 +33,28 @@ sections:
       title: About
       subtitle: A short introduction
       text: |
-        I am a machine learning researcher working on interpretability, with the
-        goal of building testable, explainable, and controllable AI systems.
+        I study how deep learning models — vision, language, and multimodal —
+        represent concepts, and develop interpretability tools, especially
+        sparse autoencoders, that expose what these models learn.
 
-        My work focuses on narrowing the gap between state-of-the-art AI and
-        real-world use cases, making these systems easier for people to
-        understand, trust, and interact with.
+        My goal is to build AI systems that are **testable, explainable, and
+        controllable**, so that people can understand, trust, and interact
+        with them more naturally. I apply these methods across scientific
+        domains, from medical imaging to language, bridging interpretability
+        research with real-world use.
 
-        This site collects selected projects, notes, and writing.
+        This site collects selected publications and notes.
     design:
       columns: '1'
       spacing:
         padding: ["2rem", "0", "1rem", "0"]
 
-  - block: collection
-    id: featured-projects
+  - block: publications-list
+    id: publications
     content:
-      title: Selected Work
-      subtitle: A few things I’d like you to see first
-      text: ''
-      filters:
-        folders:
-          - projects
-        featured_only: true
-      count: 3
+      title: Publications
+      subtitle: Selected publications. For the full list, see my <a href="https://scholar.google.com/citations?user=CqRG8v0AAAAJ&hl=en" target="_blank" rel="noopener">Google Scholar</a>.
     design:
-      view: article-grid
-      columns: 3
-      spacing:
-        padding: ["1rem", "0", "1rem", "0"]
-
-  - block: collection
-    id: latest-writing
-    content:
-      title: Writing
-      subtitle: Notes, essays, and updates
-      filters:
-        folders:
-          - blog
-      count: 3
-    design:
-      view: article-grid
-      columns: 3
       spacing:
         padding: ["1rem", "0", "1rem", "0"]
 
@@ -86,9 +65,10 @@ sections:
       text: |
         The easiest way to reach me is by email.
 
-        - Email: hyesulim.ac@gmail.com
-        - GitHub: [github.com/hyesulim](https://github.com/hyesulim)
-        - LinkedIn: [linkedin.com/in/hyesulim](https://linkedin.com/in/hyesulim)
+        - <i class="fas fa-envelope" aria-hidden="true"></i> hyesulim.ac@gmail.com
+        - <i class="fab fa-github" aria-hidden="true"></i> [github.com/hyesulim](https://github.com/hyesulim)
+        - <i class="fab fa-linkedin" aria-hidden="true"></i> [linkedin.com/in/hyesulim](https://linkedin.com/in/hyesulim)
+        - <i class="fas fa-graduation-cap" aria-hidden="true"></i> [Google Scholar](https://scholar.google.com/citations?user=CqRG8v0AAAAJ&hl=en)
     design:
       columns: '1'
       spacing:

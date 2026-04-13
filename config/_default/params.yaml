@@ -1,5 +1,5 @@
 appearance:
-  mode: light
+  mode: auto
   color: neutral
 
 marketing:
@@ -21,9 +21,10 @@ header:
     align: l
     show_logo: false
     show_language: false
-    show_day_night: false
+    show_day_night: true
     show_search: false
     highlight_active_link: true
+
 
 footer:
   copyright:

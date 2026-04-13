@@ -1,0 +1,14 @@
+{{ $page := .wcPage }}
+{{ $block := .wcBlock }}
+{{ $title := $block.content.title | default "Publications" }}
+{{ $subtitle := $block.content.subtitle | default "" }}
+
+{{ $projects := site.GetPage "section" "projects" }}
+{{ $pages := slice }}
+{{ with $projects }}
+  {{ $pages = .Pages.ByDate.Reverse }}
+{{ end }}
+
+<div class="pub-page-wrapper">
+  {{ partial "publications_list_inner.html" (dict "pages" $pages "title" $title "subtitle" $subtitle) }}
+</div>
