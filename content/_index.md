@@ -50,6 +50,15 @@ sections:
       spacing:
         padding: ["2rem", "0", "1rem", "0"]
 
+  - block: news
+    id: news
+    content:
+      title: News
+      count: 5
+    design:
+      spacing:
+        padding: ["1rem", "0", "1rem", "0"]
+
   - block: publications-list
     id: publications
     content:

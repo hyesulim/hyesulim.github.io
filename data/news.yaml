@@ -1,0 +1,58 @@
+# Homepage "News" feed.
+# Each entry: `date` (YYYY-MM-DD; only month + year are shown) and `text`
+# (inline markdown supported: **bold**, *italic*, [links](https://...)).
+# Entries are sorted by date automatically, so you can append anywhere.
+# How many show before the "Show more" fold: `count` in content/_index.md.
+#
+# Paper dates are the conferences' author-notification dates.
+
+- date: 2026-06-23
+  text: "[Poster presentation](https://drive.google.com/file/d/1ogbCokpZ-c0lGqKDUNoiTIOl97G6glDq/view?usp=sharing) at the **MCML Munich AI Day 2026**."
+
+- date: 2026-06-17
+  text: "*[ReDesign](https://arxiv.org/abs/2607.25565)* accepted at **ECCV 2026**."
+
+- date: 2026-06-09
+  text: "Talk at **HAICON 2026**: *Human-in-the-loop Concept Discovery and Curation in Vision Foundation Models*, on PatchSAE and ConceptScope — [video](https://www.youtube.com/watch?v=dbXh2oleIhs)."
+
+- date: 2026-05-01
+  text: "Serving as **Area Chair** for the ICML 2026 Workshop on Mechanistic Interpretability."
+
+- date: 2026-03-15
+  text: "Started as a **postdoctoral researcher** at Helmholtz Munich, in the [Dynamical Inference Lab](https://dynamical-inference.ai/) with Steffen Schneider."
+
+- date: 2026-02-28
+  text: "*[VisualScratchpad](https://arxiv.org/abs/2603.07335)* accepted to the **ICLR 2026** Workshop on Trustworthy AI."
+
+- date: 2026-02-20
+  text: "Defended my **Ph.D. at KAIST AI**, advised by Jaegul Choo — thesis: *Trustworthy AI in the Wild: Robustness and Interpretability for Enhanced Reliability*."
+
+- date: 2025-09-18
+  text: "*[ConceptScope](https://arxiv.org/abs/2510.26186)* accepted at **NeurIPS 2025**."
+
+- date: 2025-06-25
+  text: "Invited talk at the **Max Planck Institute for Security and Privacy** — *Trustworthy AI in the Wild*."
+
+- date: 2025-06-17
+  text: "*[CytoSAE](https://arxiv.org/abs/2507.12464)* accepted at **MICCAI 2025**."
+
+- date: 2025-01-22
+  text: "*[PatchSAE](https://arxiv.org/abs/2412.05276)* accepted at **ICLR 2025**."
+
+- date: 2024-09-25
+  text: "*[CaRot](https://openreview.net/forum?id=GnAfyR8AhC)* accepted at **NeurIPS 2024**."
+
+- date: 2024-04-11
+  text: "U.S. patent granted: *[Adapting machine learning models for domain-shifted data](https://patents.google.com/patent/US20240119360A1)*."
+
+- date: 2024-10-14
+  text: "Started a research internship at **NAVER AI Lab** (Backbone Research), Seongnam."
+
+- date: 2024-07-01
+  text: "Joined the [Dynamical Inference Lab](https://dynamical-inference.ai/) at **Helmholtz Munich** as a visiting researcher, supported by an **NRF/DAAD fellowship**."
+
+- date: 2023-08-21
+  text: "Started as a visiting scholar at **Carnegie Mellon University**, School of Computer Science."
+
+- date: 2022-02-07
+  text: "Started an internship at **Qualcomm AI Research**, Seoul."

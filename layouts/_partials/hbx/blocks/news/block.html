@@ -1,0 +1,63 @@
+{{ $block := .wcBlock }}
+{{ $title := $block.content.title | default "News" }}
+{{ $subtitle := $block.content.subtitle | default "" }}
+{{ $count := $block.content.count | default 5 }}
+
+{{ with hugo.Data.news }}
+  {{ $items := sort . "date" "desc" }}
+  <div class="news-page" data-news-count="{{ $count }}">
+    <div class="news-header">
+      <h2 class="news-title">{{ $title }}</h2>
+      {{ with $subtitle }}<p class="news-subtitle">{{ . | safeHTML }}</p>{{ end }}
+    </div>
+    <ul class="news-list">
+      {{ range $items }}
+        <li class="news-item">
+          <span class="news-date">{{ time.Format "Jan 2006" .date }}</span>
+          <span class="news-text">{{ .text | markdownify }}</span>
+        </li>
+      {{ end }}
+    </ul>
+    {{ if gt (len $items) $count }}
+      <div class="news-toggle-row">
+        <button type="button" class="news-toggle" aria-expanded="true" hidden>
+          <span class="news-toggle-label"></span>
+          <i class="fas fa-chevron-down news-toggle-icon" aria-hidden="true"></i>
+        </button>
+      </div>
+    {{ end }}
+  </div>
+{{ end }}
+
+{{/* Collapse is applied by JS so that without JS the full list stays readable. */}}
+<script>
+(function () {
+  document.querySelectorAll('.news-page').forEach(function (root) {
+    var btn = root.querySelector('.news-toggle');
+    if (!btn) return;
+    var label = btn.querySelector('.news-toggle-label');
+    var items = Array.prototype.slice.call(root.querySelectorAll('.news-item'));
+    var count = parseInt(root.dataset.newsCount, 10) || 5;
+    var hiddenCount = items.length - count;
+    if (hiddenCount < 1) return;
+
+    var expanded = false;
+    function render() {
+      items.forEach(function (item, i) {
+        item.hidden = !expanded && i >= count;
+      });
+      label.textContent = expanded ? 'Show fewer' : 'Show ' + hiddenCount + ' more';
+      btn.setAttribute('aria-expanded', String(expanded));
+      btn.classList.toggle('news-toggle-open', expanded);
+    }
+
+    btn.hidden = false;
+    btn.addEventListener('click', function () {
+      expanded = !expanded;
+      render();
+      if (!expanded) root.scrollIntoView({ block: 'start', behavior: 'smooth' });
+    });
+    render();
+  });
+})();
+</script>
