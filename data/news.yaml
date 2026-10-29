@@ -6,6 +6,9 @@
 #
 # Paper dates are the conferences' author-notification dates.
 
+- date: 2026-10-28
+  text: "Invited online talk at **Seoul National University of Science and Technology** — *Looking inside of AI*, an introduction to interpretability."
+
 - date: 2026-10-16
   text: "*[ConSDL](https://arxiv.org/abs/2610.23801)* preprint released on **arXiv**."
 

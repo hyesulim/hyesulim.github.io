@@ -79,6 +79,14 @@ sections:
         - <i class="fab fa-github" aria-hidden="true"></i> [github.com/hyesulim](https://github.com/hyesulim)
         - <i class="fab fa-linkedin" aria-hidden="true"></i> [linkedin.com/in/hyesulim](https://linkedin.com/in/hyesulim)
         - <i class="fas fa-graduation-cap" aria-hidden="true"></i> [Google Scholar](https://scholar.google.com/citations?user=CqRG8v0AAAAJ&hl=en)
+
+        #### Talks & seminars
+
+        I'm happy to give talks and seminars on interpretability, from
+        introductory overviews for students to research talks on my work.
+        I can give them in English or Korean. If you're organizing a seminar,
+        reading group, or course (in person or online), feel free to reach
+        out by email.
     design:
       columns: '1'
       spacing:
